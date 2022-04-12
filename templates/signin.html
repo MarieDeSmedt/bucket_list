@@ -11,7 +11,8 @@
 			crossorigin="anonymous"
 		/>
 		<link href="../static/signup.css" rel="stylesheet" />
-    <script src="../static/js/jquery-1.11.2.js"></script>
+  
+    <script src="../static/js/signIn.js"></script>
     
   </head>
  
@@ -38,7 +39,8 @@
  
       <div class="jumbotron">
         <h1>Bucket List App</h1>
-        <form class="form-signin" action="/validateLogin" method="post">
+        
+        <form class="form-signin" action="/validateLogin" method="POST">
         <label for="inputEmail" class="sr-only">Email address</label>
         <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
         <label for="inputPassword" class="sr-only">Password</label>
