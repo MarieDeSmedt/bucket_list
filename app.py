@@ -1,6 +1,8 @@
 from flask import Flask, render_template, json, request
 from flaskext.mysql import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
+import sys
+import os
 
 mysql = MySQL()
 app = Flask(__name__)
@@ -35,11 +37,10 @@ def signUp():
 
         # validate the received values
         if _name and _email and _password:
-
-
-            #_hashed_password = generate_password_hash(_password, method='pbkdf2:sha256', salt_length=16)
             
-            cursor.callproc('sp_createUser', (_name, _email, _password))
+            _hashed_password = generate_password_hash(_password, method='pbkdf2:sha256', salt_length=16)
+
+            cursor.callproc('sp_createUser', (_name, _email, _hashed_password))
             data = cursor.fetchall()
 
             if len(data) is 0:
