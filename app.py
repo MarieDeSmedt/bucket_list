@@ -19,7 +19,7 @@ def main():
     return render_template('index.html')
 
 
-@app.route('/signup')
+@app.route('/showSignUp')
 def showSignUp():
     return render_template('signup.html')
 
@@ -55,6 +55,16 @@ def signUp():
     finally:
         cursor.close()
         conn.close()
+
+@app.route('/showSignin')
+def showSignin():
+    return render_template('signin.html')
+
+
+
+
+
+
 
 
 if __name__ == "__main__":
